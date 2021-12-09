@@ -27,13 +27,12 @@ jobs:
       - name: create comment with api
         run: |
           gh api -X POST \
-          https://api.github.com/repo/${OG}/${REPO}/issues/${ISSUE_NUMBER} \
-          -f body ='new comment from api'
+          ${REPO_URL}/issues/${ISSUE_NUMBER}/comments \
+          -f body='new comment from api'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OG: ${{ github.event.organization.login }}
-          REPO: ${{ github.event.repository.name }}
-          ISSUE_NUMBER: ${{ github.event.repository.name }}
+          REPO_URL: ${{ github.event.repository.url }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
           
           
       

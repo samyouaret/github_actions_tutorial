@@ -20,12 +20,12 @@ jobs:
       - uses: actions/checkout@v2
       # name of the step
       - name: hello world
-      - run: echo "Hello world"
+        run: echo "Hello world"
       # what to use as shell
-      - shell: bash
+        shell: bash
   goodbye:
     runs-on: ubuntu-latest
     steps:
       - name: Good bye
-      - run: echo "Good bye"
-      - shell: bash
+        run: echo "Good bye"
+        shell: bash
